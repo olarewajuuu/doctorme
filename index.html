@@ -1,13 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doctor Me</title>
-    <link rel="stylesheet" href="./style.css">
+    <title>Symptoms Checker</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
-<body>
-    <h1>Website is under construction</h1>
+
+<body class="bg-slate-100 font-sans">
+
+      <!-- Navbar -->
+  <nav class="bg-blue-600 p-4 fixed top-0 w-full z-10 shadow-lg hover:shadow-xl transition duration-500">
+    <div class="container mx-auto flex justify-between items-center ">
+      <h1 href="./index.html" class="text-white text-2xl font-bold">DoctorMe</h1>
+      <!-- Main navigation for larger screens -->
+      <ul class="hidden md:flex justify-center items-center space-x-6">
+        <li><a href="./index.html" class="text-white hover:text-gray-300">Home</a></li>
+        <li><a href="./about" class="text-white hover:text-gray-300">About Us</a></li>
+        <li><a href="./services" class="text-white hover:text-gray-300">Services</a></li>
+        <li><a href="./contact" class="text-white hover:text-gray-300">Contact</a></li>
+        <li><a href="./signup" class="block py-2"><button
+              class="bg-white text-blue-600 py-3 px-6 rounded-lg hover:bg-gray-200">Signup</button></a>
+        </li>
+      </ul>
+      <!-- Hamburger Menu Icon -->
+      <div class="md:hidden">
+        <button id="menu-btn" class="text-white focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Sliding Menu -->
+  <div id="mobile-menu"
+    class="fixed pt-12 inset-y-0 z-10 right-0 w-64 bg-blue-600 text-white transform translate-x-full transition-transform duration-300 ease-in-out">
+    <div class="pt-8">
+      <div class="mb-10 flex justify-center items-center gap-20 broder-white border-b-2 pb-4">
+        <button id="close-btn" class="text-white focus:outline-none mb">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+            </path>
+          </svg>
+        </button>
+        <h1 class="text-white text-2xl font-bold">DoctorMe</h1>
+      </div>
+
+      <ul class="space-y-4 pl-8">
+        <li><a href="./index.html" class="block py-2">Home</a></li>
+        <li><a href="./about" class="block py-2">About Us</a></li>
+        <li><a href="./services" class="block py-2">Services</a></li>
+        <li><a href="./contact" class="block py-2">Contact</a></li>
+        <li><a href="./signup" class="block py-2"><button
+              class="bg-white text-blue-600 py-3 px-6 rounded-lg hover:bg-gray-200">Signup</button></a>
+        </li>
+        <li><a href="./checker.html" class="block py-2"><button
+              class="border-2 broder-white text-white py-3 px-6 rounded-lg hover:text-blue-600 hover:bg-gray-200">Start now</button></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+    <!-- Hero Section -->
+    <section class="flex items-center justify-center text-white  relative w-full h-screen bg-cover bg-center" style="background-image: url(./images/Headerimage.svg);">
+        <div class="container mx-auto">
+            <!-- Text Section -->
+            <div class="md:w-1/2 text-center mx-auto">
+                <h1 class="text-5xl md:text-6xl font-bold">Check Your Symptoms Instantly</h1>
+                <p class="mt-4 mb-10 text-lg">
+                    Get reliable insights about your health symptoms in just a few clicks. Take control of your health
+                    today with our easy-to-use symptom checker.
+                </p>
+                <button >
+                    <a class="mt-20 bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-gray-200 hover:text-blue-300" href="./checker.html">Start Now</a>
+                </button>
+            </div>
+
+            <!-- Image Section -->
+            <!-- <div class="md:w-1/2 mt-8 md:mt-0">
+                <img src="./images/heroimg.png" alt="Symptoms Checker" class="w-full h-auto">
+            </div> -->
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-slate-100">
+        <div class="container mx-auto text-center">
+            <h3 class="text-3xl font-semibold text-blue-600">Our Services</h3>
+            <div class="grid md:grid-cols-3 gap-8 mt-8">
+                <!-- Service 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h4 class="text-xl font-semibold text-blue-500">Symptom Checker</h4>
+                    <p class="mt-4 text-gray-600">Get personalized health insights based on your symptoms using advanced
+                        algorithms.</p>
+                </div>
+                <!-- Service 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h4 class="text-xl font-semibold text-blue-500">Health Recommendations</h4>
+                    <p class="mt-4 text-gray-600">Receive recommendations for further action, whether it’s seeing a
+                        doctor or self-care.</p>
+                </div>
+                <!-- Service 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h4 class="text-xl font-semibold text-blue-500">Telehealth Integration</h4>
+                    <p class="mt-4 text-gray-600">Easily connect with healthcare providers for consultations directly
+                        from our platform.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer id="contact" class="bg-blue-600 text-white py-10">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <!-- {/* Company Section */} -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-3">Company</h3>
+                    <ul>
+                        <li><a href="#" class="hover:underline">About</a></li>
+                        <li><a href="#" class="hover:underline">Careers</a></li>
+                        <li><a href="#" class="hover:underline">Brand Center</a></li>
+                        <li><a href="#" class="hover:underline">Blog</a></li>
+                    </ul>
+                </div>
+
+                <!-- Help Center Section  -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-3">Help Center</h3>
+                    <ul>
+                        <li><a href="#" class="hover:underline">Discord Server</a></li>
+                        <li><a href="#" class="hover:underline">Twitter</a></li>
+                        <li><a href="#" class="hover:underline">Facebook</a></li>
+                        <li><a href="#" class="hover:underline">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal Section -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-3">Legal</h3>
+                    <ul>
+                        <li><a href="#" class="hover:underline">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:underline">Licensing</a></li>
+                        <li><a href="#" class="hover:underline">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+
+                <!-- Download Section -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-3">Download</h3>
+                    <ul>
+                        <li><a href="#" class="hover:underline">iOS</a></li>
+                        <li><a href="#" class="hover:underline">Android</a></li>
+                        <li><a href="#" class="hover:underline">Windows</a></li>
+                        <li><a href="#" class="hover:underline">MacOS</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Social Media Icons and Footer Bottom Section  -->
+            <div class="mt-10 flex flex-col md:flex-row justify-between items-center border-t border-gray-700 pt-6">
+                <p class="text-sm">&copy; 2024 All rights reserved</p>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-blue-500">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="#" class="hover:text-blue-300">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <!-- <a href="#" className="hover:text-pink-500">
+                <i className="fab fa-instagram"></i>
+              </a> -->
+                    <a href="#" class="hover:text-red-500">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+
 </body>
-<script src="./script.js"></script>
+<script defer src="./script.js"></script>
+
 </html>

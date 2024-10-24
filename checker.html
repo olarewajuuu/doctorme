@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Symptom Checker</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script defer src="app.js"></script>
+</head>
+
+<body class="bg-gray-100">
+
+
+  <!-- Navbar -->
+  <nav class="bg-blue-600 p-4 fixed top-0 w-full z-10 shadow-lg hover:shadow-xl transition duration-500">
+    <div class="container mx-auto flex justify-between items-center ">
+      <h1 href="./index.html" class="text-white text-2xl font-bold cur">DoctorMe</h1>
+      <!-- Main navigation for larger screens -->
+      <ul class="hidden md:flex justify-center items-center space-x-6">
+        <li><a href="./index.html" class="text-white hover:text-gray-300">Home</a></li>
+        <li><a href="./about" class="text-white hover:text-gray-300">About Us</a></li>
+        <li><a href="./services" class="text-white hover:text-gray-300">Services</a></li>
+        <li><a href="./contact" class="text-white hover:text-gray-300">Contact</a></li>
+        <li><a href="./signup" class="block py-2"><button
+              class="bg-white text-blue-600 py-3 px-6 rounded-lg hover:bg-gray-200">Signup</button></a>
+        </li>
+      </ul>
+      <!-- Hamburger Menu Icon -->
+      <div class="md:hidden">
+        <button id="menu-btn" class="text-white focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Sliding Menu -->
+  <div id="mobile-menu"
+    class="fixed pt-12 inset-y-0 z-10 right-0 w-64 bg-blue-600 text-white transform translate-x-full transition-transform duration-300 ease-in-out">
+    <div class="pt-8">
+      <div class="mb-10 flex justify-center items-center gap-20 broder-white border-b-2 pb-4">
+        <button id="close-btn" class="text-white focus:outline-none mb">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+            </path>
+          </svg>
+        </button>
+        <h1 class="text-white text-2xl font-bold">DoctorMe</h1>
+      </div>
+
+      <ul class="space-y-4 pl-8">
+        <li><a href="./index.html" class="block py-2">Home</a></li>
+        <li><a href="./about" class="block py-2">About Us</a></li>
+        <li><a href="./services" class="block py-2">Services</a></li>
+        <li><a href="./contact" class="block py-2">Contact</a></li>
+        <li><a href="./signup" class="block py-2"><button
+              class="bg-white text-blue-600 py-3 px-6 rounded-lg hover:bg-gray-200">Signup</button></a>
+        </li>
+        <li><a href="./checker.html" class="block py-2"><button
+              class="border-2 broder-white text-white py-3 px-6 rounded-lg hover:text-blue-600 hover:bg-gray-200">Start now</button></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="bg-blue-600 text-white text-center py-12 mt-20">
+    <h1 class="text-4xl font-bold">Patient Symptom Checker</h1>
+    <p class="mt-4 text-lg">Enter your symptoms and get a quick diagnosis!</p>
+  </section>
+
+  <!-- Symptom Checker Form -->
+  <section class="container mx-auto py-8 px-4">
+    <div class="bg-white p-6 rounded-lg shadow-lg max-w-lg mx-auto">
+      <h2 class="text-2xl font-semibold text-center mb-6">Enter your symptoms</h2>
+
+      <!-- Form -->
+      <form id="symptomForm" class="space-y-4">
+        <input type="text" id="symptomsInput" class="w-full p-4 border border-gray-300 rounded-lg"
+          placeholder="Enter symptoms (e.g., headache, fever)">
+        <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700">Check
+          Symptoms</button>
+      </form>
+
+      <!-- Results -->
+      <div id="diagnosisResult" class="mt-6 hidden bg-blue-50 p-4 rounded-lg text-blue-900"></div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer id="contact" class="bg-blue-600 text-white py-10">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <!-- {/* Company Section */} -->
+        <div>
+          <h3 class="text-lg font-semibold mb-3">Company</h3>
+          <ul>
+            <li><a href="#" class="hover:underline">About</a></li>
+            <li><a href="#" class="hover:underline">Careers</a></li>
+            <li><a href="#" class="hover:underline">Brand Center</a></li>
+            <li><a href="#" class="hover:underline">Blog</a></li>
+          </ul>
+        </div>
+
+        <!-- Help Center Section  -->
+        <div>
+          <h3 class="text-lg font-semibold mb-3">Help Center</h3>
+          <ul>
+            <li><a href="#" class="hover:underline">Discord Server</a></li>
+            <li><a href="#" class="hover:underline">Twitter</a></li>
+            <li><a href="#" class="hover:underline">Facebook</a></li>
+            <li><a href="#" class="hover:underline">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Legal Section -->
+        <div>
+          <h3 class="text-lg font-semibold mb-3">Legal</h3>
+          <ul>
+            <li><a href="#" class="hover:underline">Privacy Policy</a></li>
+            <li><a href="#" class="hover:underline">Licensing</a></li>
+            <li><a href="#" class="hover:underline">Terms & Conditions</a></li>
+          </ul>
+        </div>
+
+        <!-- Download Section -->
+        <div>
+          <h3 class="text-lg font-semibold mb-3">Download</h3>
+          <ul>
+            <li><a href="#" class="hover:underline">iOS</a></li>
+            <li><a href="#" class="hover:underline">Android</a></li>
+            <li><a href="#" class="hover:underline">Windows</a></li>
+            <li><a href="#" class="hover:underline">MacOS</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Social Media Icons and Footer Bottom Section  -->
+      <div class="mt-10 flex flex-col md:flex-row justify-between items-center border-t border-gray-700 pt-6">
+        <p class="text-sm">&copy; 2024 All rights reserved</p>
+        <div class="flex space-x-4 mt-4 md:mt-0">
+          <a href="#" class="hover:text-blue-500">
+            <i class="fab fa-facebook"></i>
+          </a>
+          <a href="#" class="hover:text-blue-300">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <!-- <a href="#" className="hover:text-pink-500">
+          <i className="fab fa-instagram"></i>
+        </a> -->
+          <a href="#" class="hover:text-red-500">
+            <i class="fab fa-youtube"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+
+</body>
+<script src="./script.js"></script>
+
+</html>
