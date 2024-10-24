@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
   
 
 
-
+  
 // Mock API - List of symptoms and corresponding diagnoses
 const mockSymptomsDatabase = [
   { symptoms: 'fever', diagnosis: 'You might have a viral infection or the flu.' },
