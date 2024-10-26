@@ -104,6 +104,18 @@
       <div id="diagnosisResult" class="mt-6 hidden bg-blue-50 p-4 rounded-lg text-blue-900"></div>
       <h2 class="text-lg font-semibold mt-6">Available Doctors:</h2>
       <ul id="doctorList" class="mt-2 text-gray-700"></ul>
+
+              <!-- Chat Interface -->
+              <div id="chatInterface" class="hidden mt-6 w-full max-w-lg border rounded-lg shadow-lg bg-white">
+                <div class="p-4 border-b">
+                    <h2 class="text-lg font-semibold">Chat with Doctor</h2>
+                </div>
+                <div id="chatMessages" class="p-4 space-y-2 h-48 overflow-y-auto"></div>
+                <div class="p-4 border-t">
+                    <input type="text" id="chatInput" placeholder="Type your message..." class="border w-full p-2 rounded" />
+                    <button id="sendMessage" class="bg-blue-500 text-white px-4 py-2 rounded mt-2">Send</button>
+                </div>
+    
     </div>
     
   </section>

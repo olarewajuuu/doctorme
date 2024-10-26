@@ -128,16 +128,16 @@ const mockSymptomsDatabase = [
 // Mock data for available doctors
 const doctorsDatabase = {
   fever: [
-      { name: 'Dr. John Smith', specialty: 'General Practitioner', picture: './images/user1.svg', phone: '(123) 456-7890' },
-      { name: 'Dr. Jane Doe', specialty: 'Infectious Disease Specialist', picture: './images/user2.svg', phone: '(123) 456-7891' },
+    { name: 'Dr. John Smith', specialty: 'General Practitioner', picture: './images/user1.svg', phone: '(123) 456-7890' },
+    { name: 'Dr. Jane Doe', specialty: 'Infectious Disease Specialist', picture: './images/user2.svg', phone: '(123) 456-7891' },
   ],
   headache: [
-      { name: 'Dr. Emily Davis', specialty: 'Neurologist', picture: './images/user3.svg', phone: '(123) 456-7892' },
-      { name: 'Dr. Mark Wilson', specialty: 'Pain Management Specialist', picture: './images/user2.svg', phone: '(123) 456-7893' },
+    { name: 'Dr. Emily Davis', specialty: 'Neurologist', picture: './images/user3.svg', phone: '(123) 456-7892' },
+    { name: 'Dr. Mark Wilson', specialty: 'Pain Management Specialist', picture: './images/user2.svg', phone: '(123) 456-7893' },
   ],
   cough: [
-      { name: 'Dr. Sarah Brown', specialty: 'Pulmonologist', picture: './images/user3.svg', phone: '(123) 456-7894' },
-      { name: 'Dr. Chris Johnson', specialty: 'Allergist', picture: './images/user1.svg', phone: '(123) 456-7895' },
+    { name: 'Dr. Sarah Brown', specialty: 'Pulmonologist', picture: './images/user3.svg', phone: '(123) 456-7894' },
+    { name: 'Dr. Chris Johnson', specialty: 'Allergist', picture: './images/user1.svg', phone: '(123) 456-7895' },
   ],
   // Add more doctors as needed
 };
@@ -161,55 +161,86 @@ const diagnosisResult = document.getElementById('diagnosisResult');
 const doctorList = document.getElementById('doctorList');
 const loadingScreen = document.getElementById('loadingScreen');
 
+
+// Chat elements
+const chatInterface = document.getElementById('chatInterface');
+const chatMessages = document.getElementById('chatMessages');
+const chatInput = document.getElementById('chatInput');
+const sendMessageButton = document.getElementById('sendMessage');
+
 // Handle form submission
 symptomForm.addEventListener('submit', (event) => {
-  event.preventDefault();  // Prevent form from refreshing the page
+    event.preventDefault();  // Prevent form from refreshing the page
 
-  // Show loading screen
-  loadingScreen.classList.remove('hidden');
-  diagnosisResult.textContent = ''; // Clear any previous result
-  doctorList.innerHTML = ''; // Clear previous doctor list
+    // Show loading screen
+    loadingScreen.classList.remove('hidden');
+    diagnosisResult.textContent = ''; // Clear any previous result
+    doctorList.innerHTML = ''; // Clear previous doctor list
+    chatMessages.innerHTML = ''; // Clear previous chat messages
 
-  // Get user input
-  const enteredSymptoms = symptomsInput.value.trim().toLowerCase();
+    // Get user input
+    const enteredSymptoms = symptomsInput.value.trim().toLowerCase();
 
-  // Simulate a loading delay of 2 seconds before showing the diagnosis
-  setTimeout(() => {
-      // Hide loading screen
-      loadingScreen.classList.add('hidden');
+    // Simulate a loading delay of 2 seconds before showing the diagnosis
+    setTimeout(() => {
+        // Hide loading screen
+        loadingScreen.classList.add('hidden');
 
-      // Find matching diagnosis based on the user's input
-      const matchingSymptom = mockSymptomsDatabase.find(item => enteredSymptoms.includes(item.symptoms));
+        // Find matching diagnosis based on the user's input
+        const matchingSymptom = mockSymptomsDatabase.find(item => enteredSymptoms.includes(item.symptoms));
 
-      // Display result based on match
-      if (matchingSymptom) {
-          diagnosisResult.innerHTML = `<h3 class="text-lg font-semibold">Diagnosis:</h3>
-              <p class="mt-2">${matchingSymptom.diagnosis}</p>`;
+        // Display result based on match
+        if (matchingSymptom) {
+            diagnosisResult.innerHTML = `<h3 class="text-lg font-semibold">Diagnosis:</h3>
+                <p class="mt-2">${matchingSymptom.diagnosis}</p>`;
 
-          // Find and display available doctors for the matching symptom
-          const doctors = findDoctors(matchingSymptom.symptoms);
-          if (doctors.length > 0) {
-              doctors.forEach(doctor => {
-                  const listItem = document.createElement('li');
-                  listItem.classList.add('flex', 'items-center', 'space-x-4', 'border', 'p-4', 'rounded');
+            // Find and display available doctors for the matching symptom
+            const doctors = findDoctors(matchingSymptom.symptoms);
+            if (doctors.length > 0) {
+                doctors.forEach(doctor => {
+                    const listItem = document.createElement('li');
+                    listItem.classList.add('flex', 'items-center', 'space-x-4', 'border', 'p-4', 'rounded');
 
-                  listItem.innerHTML = `
-                      <img src="${doctor.picture}" alt="${doctor.name}" class="w-24 h-24 rounded-full">
-                      <div>
-                          <h4 class="font-semibold">${doctor.name}</h4>
-                          <p>${doctor.specialty}</p>
-                          <p class="text-sm text-gray-600">${doctor.phone}</p>
-                      </div>
-                  `;
-                  doctorList.appendChild(listItem);
-              });
-          } else {
-              doctorList.innerHTML = '<li>No doctors available for this symptom.</li>';
-          }
-      } else {
-          diagnosisResult.innerHTML = '<p class="text-red-500">No matching diagnosis found. Please try different symptoms.</p>';
-      }
+                    listItem.innerHTML = `
+                        <img src="${doctor.picture}" alt="${doctor.name}" class="w-24 h-24 rounded-full">
+                        <div>
+                            <h4 class="font-semibold">${doctor.name}</h4>
+                            <p>${doctor.specialty}</p>
+                            <p class="text-sm text-gray-600">${doctor.phone}</p>
+                            <button class="bg-blue-500 text-white px-2 py-1 mt-2 rounded" onclick="startChat('${doctor.name}')">Chat</button>
+                        </div>
+                    `;
+                    doctorList.appendChild(listItem);
+                });
+            } else {
+                doctorList.innerHTML = '<li>No doctors available for this symptom.</li>';
+            }
+        } else {
+            diagnosisResult.innerHTML = '<p class="text-red-500">No matching diagnosis found. Please try different symptoms.</p>';
+        }
 
-      diagnosisResult.classList.remove('hidden');
-  }, 2000); // 2000 ms = 2 seconds
+        diagnosisResult.classList.remove('hidden');
+    }, 2000); // 2000 ms = 2 seconds
+});
+
+// Function to start chat with a doctor
+function startChat(doctorName) {
+    chatInterface.classList.remove('hidden'); // Show the chat interface
+    chatMessages.innerHTML += `<div class="text-gray-600">You are now chatting with ${doctorName}.</div>`;
+}
+
+// Handle sending messages
+sendMessageButton.addEventListener('click', () => {
+    const message = chatInput.value.trim();
+    if (message) {
+        // Display user message
+        chatMessages.innerHTML += `<div class="text-right text-blue-500">You: ${message}</div>`;
+        chatInput.value = ''; // Clear input
+
+        // Simulate a doctor response after a short delay
+        setTimeout(() => {
+            chatMessages.innerHTML += `<div class="text-left text-gray-600">Doctor: Thank you for your message. How can I assist you?</div>`;
+            chatMessages.scrollTop = chatMessages.scrollHeight; // Auto scroll to bottom
+        }, 1000); // 1 second delay for doctor response
+    }
 });
