@@ -16,17 +16,17 @@
 
     <!-- Navbar -->
     <nav class="bg-white p-4 fixed top-0 w-full z-10 shadow-lg hover:shadow-xl transition duration-500">
-        <div class="container mx-auto flex justify-between items-center ">
+        <div class="container mx-auto flex justify-center gap-96 items-center ">
             <h1><a href="./index.html" class="text-blue-600 text-2xl font-bold">DoctorMe</a></h1>
             <!-- Main navigation for larger screens -->
-            <ul class="hidden md:flex justify-center items-center space-x-6 active:text-blue-600">
-                <li><a href="./index.html" class="text-black hover:text-blue-300 nav-link ">Home</a></li>
-                <li><a href="./checker.html" class="text-black hover:text-blue-300 nav-link ">Symptoms</a></li>
-                <li><a href="./about" class="text-black hover:text-blue-300 nav-link ">Articles</a></li>
-                <li><a href="./about" class="text-black hover:text-blue-300 nav-link ">About Us</a></li>
-                <li><a href="./services" class="text-black hover:text-blue-300 nav-link ">Find a Health Worker</a></li>
+            <ul class="hidden md:flex justify-center items-center gap-4 space-x-6 active:text-blue-600 font-semibold">
+                <li><a href="./index.html" class="text-black hover:text-blue-300 text-xl ">Home</a></li>
+                <li><a href="./checker.html" class="text-black hover:text-blue-300 text-xl ">Symptoms</a></li>
+                <li><a href="./about" class="text-black hover:text-blue-300 text-xl ">Articles</a></li>
+                <li><a href="./about" class="text-black hover:text-blue-300 text-xl ">About Us</a></li>
+                <li><a href="./services" class="text-black hover:text-blue-300 text-xl ">Find a Health Worker</a></li>
                 <li><a href="./signup" class="block py-2"><button
-                            class="bg-blue-600 text-white py-3 px-6 rounded-3xl hover:text-blue-500 hover:border-2 hover:border-blue-600 hover:bg-gray-200">Contact</button></a>
+                            class="bg-blue-600 text-white py-3 px-6 rounded-3xl hover:text-blue-500 hover:border-2 hover:border-blue-600 hover:bg-gray-200 font-semibold">Contact Us</button></a>
                 </li>
             </ul>
             <!-- Hamburger Menu Icon -->
@@ -73,9 +73,9 @@
     <!-- Hero Section -->
     <section class="flex items-center justify-center text-white  relative w-full h-screen bg-cover bg-center"
         style="background-image: url(./images/Headerimage.svg);">
-        <div class="container mx-auto">
+        <div class="container mx-auto md:ml-60">
             <!-- Text Section -->
-            <div class="md:w-1/2 text-left mt-24 mx-5 md:px">
+            <div class="md:w-1/2 text-left mt-24 mx-5 ">
                 <h1 class="text-5xl md:text-6xl font-bold">Find Answers to your Health questions</h1>
                 <p class="mt-4 mb-10 md: md:text-3xl text-2xl">
                     Check symptoms, learn about conditions and get expert advice
@@ -100,8 +100,8 @@
 
             <!-- Text Section -->
             <div class="md:w-1/3 md:pl-12 md:p-0 px-4">
-                <h2 class="text-3xl font-bold  mb-4">Welcome to DoctorMe</h2>
-                <p class="text-gray-700 mb-6">
+                <h2 class="text-3xl font-bold  mb-10">Welcome to DoctorMe</h2>
+                <p class="text-gray-700 mb-10 leading-8">
                     DoctorMe is your personal health assistant. Get expert advice, diagnose symptoms, and book
                     appointments easily. Access quality care anytime, anywhere. Our AI-powered symptom checker and
                     network of trusted healthcare professionals are here to help.
@@ -125,7 +125,7 @@
     <section>
         <section class="bg-gray-100 py-12 rounded-3xl">
             <h2 class="text-3xl font-bold text-blue-600 mb-4 text-center py-20">About Us</h2>
-            <div class="container mx-auto flex flex-col md:flex-row items-center justify-center md:gap-40 gap-0 mb-10">
+            <div class="container mx-auto flex flex-col md:flex-row items-center justify-center md:gap-60 gap-0 mb-10">
 
                 <!-- Image Section -->
                 <div class="md:w-1/1 mb-6 md:mb-0">
@@ -135,7 +135,7 @@
                 <!-- Text Section -->
                 <div class="md:w-1/3 md:pl-12 p-4">
                     <h2 class="text-3xl font-bold  mb-4">AI-Powered Symptom Checker</h2>
-                    <p class="text-gray-700 mb-6">
+                    <p class="text-gray-700 mb-6 leading-8">
                         Our AI-powered symptom checker is a revolutionary tool designed to provide you with quick and
                         accurate diagnoses. Simply describe your symptoms, and our advanced algorithm will analyze your
                         information to suggest potential causes and recommend appropriate next steps. Whether you’re
@@ -148,7 +148,7 @@
 
             </div>
 
-            <div class="container mx-auto flex flex-col md:flex-row items-center justify-center md:gap-40 gap-0 mb-10">
+            <div class="container mx-auto flex flex-col md:flex-row items-center justify-center md:gap-60 gap-0 mb-10">
                 <!-- Image Section -->
                 <div class="md:w-1/1 mb-6 md:mb-0 md:hidden">
                     <img src="./images/harticleimg.svg" alt="About Us Image" class="w-[344px] rounded-lg shadow-lg">
@@ -157,7 +157,7 @@
                 <!-- Text Section -->
                 <div class="md:w-1/3 md:pl-12 p-4">
                     <h2 class="text-3xl font-bold  mb-4">Health Articles</h2>
-                    <p class="text-gray-700 mb-6">
+                    <p class="text-gray-700 mb-6 leading-8">
                         Our Health Articles section is a treasure trove of information on a wide range of health topics,
                         from common ailments to preventive care. Written by experienced healthcare professionals, our
                         articles are designed to be informative, engaging, and easy to understand.
@@ -173,7 +173,7 @@
                 </div>
 
             </div>
-            <div class="container mx-auto flex flex-col md:flex-row items-center justify-center md:gap-40 mb-10">
+            <div class="container mx-auto flex flex-col md:flex-row items-center justify-center md:gap-60 mb-10">
 
                 <!-- Image Section -->
                 <div class="md:w-1/1 mb-6 md:mb-0">
@@ -182,8 +182,8 @@
 
                 <!-- Text Section -->
                 <div class="md:w-1/3 md:pl-12 p-4">
-                    <h2 class="text-3xl font-bold  mb-4">Find a Local Health Worker </h2>
-                    <p class="text-gray-700 mb-6">
+                    <h2 class="text-3xl font-bold  mb-10">Find a Local Health Worker </h2>
+                    <p class="text-gray-700 mb-10 leading-8">
                         Our "Find a Local Health Worker" feature makes it easy to connect with qualified healthcare
                         providers in your community. Whether you need a general practitioner, specialist, or traditional
                         healer, our network of trusted professionals is here to help.
@@ -354,8 +354,8 @@
 
     <!-- Footer Section -->
     <footer id="contact" class="bg-white py-10 mt-20">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div class="container mx-auto px-20">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-0">
                 <!-- {/* Company Section */} -->
                 <div>
                     <h3 class="text-lg font-semibold mb-3 text-black">Navigation Links</h3>
@@ -399,20 +399,20 @@
                 </ul>
             </div>
         </div>
-            </div>
+            
 
             <!-- Social Media Icons and Footer Bottom Section  -->
             <div class="mt-10 flex flex-col md:flex-row justify-between items-center  pt-6">
-                <p class="text-sm">Made With Love By Figmaland All Right Reserved </p>
+                <p class="text-lg">Made With Love By Figmaland All Right Reserved </p>
                 <div class="flex space-x-4 mt-4 md:mt-0">
-                    <a href="#" class="hover:text-blue-500 text-blue-600">
+                    <a href="#" class="hover:text-blue-500 text-blue-600 text-2xl">
                         <i class="fab fa-facebook"></i>
                     </a>
-                    <a href="#" class="hover:text-blue-300 text-blue-600">
+                    <a href="#" class="hover:text-blue-300 text-blue-600 text-2xl">
                         <i class="fab fa-twitter"></i>
                     </a>
                     <a href="#" className="hover:text-pink-500 ">
-                        <i class="fa-brands fa-instagram text-blue-600"></i>
+                        <i class="fa-brands fa-instagram text-blue-600 text-2xl"></i>
               </a> 
 
                 </div>
