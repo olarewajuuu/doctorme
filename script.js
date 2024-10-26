@@ -8,7 +8,7 @@ window.addEventListener('load', () => {
   setTimeout(() => {
     loadingScreen.classList.add('hidden');  // Hide loading screen
     mainContent.classList.remove('hidden'); // Show main content
-  }, 3000); // 2000 milliseconds = 2 seconds
+  }, 1000); // 2000 milliseconds = 2 seconds
 });
 
 
@@ -131,7 +131,7 @@ const diagnosisResult = document.getElementById('diagnosisResult');
 symptomForm.addEventListener('submit', (event) => {
   // Show loading screen
   loadingScreen.classList.remove('hidden');
-  
+
   diagnosisResult.textContent = ''; // Clear any previous result
 
   // Simulate a loading delay of 2 seconds before showing the diagnosis
@@ -142,7 +142,7 @@ symptomForm.addEventListener('submit', (event) => {
     // Display the diagnosis result
     const diagnosis = findDiagnosis(symptomInput);
     diagnosisResult.textContent = diagnosis;
-  }, 2000); // 2000 ms = 2 seconds
+  }, 1000); // 2000 ms = 2 seconds
 
 
   event.preventDefault();  // Prevent form from refreshing the page

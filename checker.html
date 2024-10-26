@@ -19,60 +19,63 @@
    
     
      <!-- Navbar -->
-     <nav class="bg-white p-4 fixed top-0 w-full z-10 shadow-lg hover:shadow-xl transition duration-500">
-      <div class="container mx-auto flex justify-between items-center ">
-          <h1><a href="./index.html" class="text-blue-600 text-2xl font-bold">DoctorMe</a></h1>
-          <!-- Main navigation for larger screens -->
-          <ul class="hidden md:flex justify-center items-center space-x-6 active:text-blue-600">
-              <li><a href="./index.html" class="text-black hover:text-blue-300 nav-link ">Home</a></li>
-              <li><a href="./checker.html" class="text-black hover:text-blue-300 nav-link ">Symptoms</a></li>
-              <li><a href="./about" class="text-black hover:text-blue-300 nav-link ">Articles</a></li>
-              <li><a href="./about" class="text-black hover:text-blue-300 nav-link ">About Us</a></li>
-              <li><a href="./services" class="text-black hover:text-blue-300 nav-link ">Find a Health Worker</a></li>
-              <li><a href="./signup" class="block py-2"><button
-                          class="bg-blue-600 text-white py-3 px-6 rounded-3xl hover:text-blue-500 hover:border-2 hover:border-blue-600 hover:bg-gray-200">Contact</button></a>
-              </li>
-          </ul>
-          <!-- Hamburger Menu Icon -->
-          <div class="md:hidden">
-              <button id="menu-btn" class="text-blue-600 focus:outline-none">
-                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M4 6h16M4 12h16M4 18h16"></path>
-                  </svg>
-              </button>
-          </div>
-      </div>
-  </nav>
+     <!-- Navbar -->
+    <nav class="bg-white p-4 fixed top-0 w-full z-10 shadow-lg hover:shadow-xl transition duration-500">
+        <div class="container mx-auto flex justify-between md:justify-center md:gap-96 items-center ">
+            <h1><a href="./index.html" class="text-blue-600 text-2xl font-bold">DoctorMe</a></h1>
+            <!-- Main navigation for larger screens -->
+            <ul class="hidden md:flex justify-center items-center gap-4 space-x-6 active:text-blue-600 font-semibold">
+                <li><a href="./index.html" class="text-black hover:text-blue-300  ">Home</a></li>
+                <li><a href="./checker.html" class="text-black hover:text-blue-300  ">Symptoms</a></li>
+                <li><a href="./about" class="text-black hover:text-blue-300  ">Articles</a></li>
+                <li><a href="./about" class="text-black hover:text-blue-300 ">About Us</a></li>
+                <li><a href="./services" class="text-black hover:text-blue-300 ">Find a Health Worker</a></li>
+                <li><a href="./signup" class="block py-2"><button
+                            class="bg-blue-600 text-white py-3 px-6 rounded-3xl hover:text-blue-500 hover:border-2 hover:border-blue-600 hover:bg-gray-200 font-semibold">Contact
+                            Us</button></a>
+                </li>
+            </ul>
+            <!-- Hamburger Menu Icon -->
+            <div class="md:hidden">
+                <button id="menu-btn" class="text-blue-600 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
 
-  <!-- Mobile Sliding Menu -->
-  <div id="mobile-menu"
-      class="fixed pt-12 inset-y-0 z-10 right-0 w-64 bg-blue-600 text-white transform translate-x-full transition-transform duration-300 ease-in-out">
-      <div class="pt-8">
-          <div class="mb-10 flex justify-center items-center gap-20 broder-white border-b-2 pb-4">
-              <button id="close-btn" class="text-white focus:outline-none mb">
-                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
-                      </path>
-                  </svg>
-              </button>
-              <h1 class="text-white text-2xl font-bold">DoctorMe</h1>
-          </div>
+    <!-- Mobile Sliding Menu -->
+    <div id="mobile-menu"
+        class="fixed pt-12 inset-y-0 z-10 right-0 w-64 bg-blue-600 text-white transform translate-x-full transition-transform duration-300 ease-in-out">
+        <div class="pt-8">
+            <div class="mb-10 flex justify-center items-center gap-20 broder-white border-b-2 pb-4">
+                <button id="close-btn" class="text-white focus:outline-none mb">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
+                    </svg>
+                </button>
+                <h1 class="text-white text-2xl font-bold">DoctorMe</h1>
+            </div>
 
-          <ul class="space-y-4 pl-8">
-              <li><a href="./index.html" class="block py-2">Home</a></li>
-              <li><a href="./about" class="block py-2">Symptoms</a></li>
-              <li><a href="./about" class="block py-2">Articles</a></li>
-              <li><a href="./about" class="block py-2">About Us</a></li>
-              <li><a href="./services" class="block py-2">Find a Health Worker</a></li>
-              <li><a href="./signup" class="block py-2"><button
-                          class="bg-white text-blue-600 py-3 px-6 rounded-lg hover:bg-gray-200">Contact</button></a>
-              </li>
-          </ul>
-      </div>
-  </div>
+            <ul class="space-y-4 pl-8">
+                <li><a href="./index.html" class="block py-2">Home</a></li>
+                <li><a href="./checker.html" class="block py-2">Symptoms</a></li>
+                <li><a href="./about" class="block py-2">Articles</a></li>
+                <li><a href="./about" class="block py-2">About Us</a></li>
+                <li><a href="./services" class="block py-2">Find a Health Worker</a></li>
+                <li><a href="./signup" class="block py-2"><button
+                            class="bg-white text-blue-600 py-3 px-6 rounded-lg hover:bg-gray-200">Contact</button></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
 
   <!-- Hero Section -->
   <section class="bg-blue-600 text-white text-center py-12 mt-20">
