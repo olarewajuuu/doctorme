@@ -1,3 +1,17 @@
+// loading.js
+
+window.addEventListener('load', () => {
+  const loadingScreen = document.getElementById('loadingScreen');
+  const mainContent = document.getElementById('mainContent');
+
+  // Set a minimum loading duration of 2 seconds
+  setTimeout(() => {
+    loadingScreen.classList.add('hidden');  // Hide loading screen
+    mainContent.classList.remove('hidden'); // Show main content
+  }, 3000); // 2000 milliseconds = 2 seconds
+});
+
+
 document.addEventListener('DOMContentLoaded', function () {
   const menuBtn = document.getElementById('menu-btn');
   const closeBtn = document.getElementById('close-btn');
@@ -115,6 +129,22 @@ const diagnosisResult = document.getElementById('diagnosisResult');
 
 // Handle form submission
 symptomForm.addEventListener('submit', (event) => {
+  // Show loading screen
+  loadingScreen.classList.remove('hidden');
+  
+  diagnosisResult.textContent = ''; // Clear any previous result
+
+  // Simulate a loading delay of 2 seconds before showing the diagnosis
+  setTimeout(() => {
+    // Hide loading screen
+    loadingScreen.classList.add('hidden');
+
+    // Display the diagnosis result
+    const diagnosis = findDiagnosis(symptomInput);
+    diagnosisResult.textContent = diagnosis;
+  }, 2000); // 2000 ms = 2 seconds
+
+
   event.preventDefault();  // Prevent form from refreshing the page
 
   // Get user input
@@ -132,4 +162,5 @@ symptomForm.addEventListener('submit', (event) => {
   }
 
   diagnosisResult.classList.remove('hidden');
+
 });
