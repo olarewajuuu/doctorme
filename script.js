@@ -122,45 +122,94 @@ const mockSymptomsDatabase = [
   { symptoms: 'loss of interest', diagnosis: 'Loss of interest may indicate depression or mental health concerns.' }
 ];
 
+
+
+
+// Mock data for available doctors
+const doctorsDatabase = {
+  fever: [
+      { name: 'Dr. John Smith', specialty: 'General Practitioner', picture: './images/user1.svg', phone: '(123) 456-7890' },
+      { name: 'Dr. Jane Doe', specialty: 'Infectious Disease Specialist', picture: './images/user2.svg', phone: '(123) 456-7891' },
+  ],
+  headache: [
+      { name: 'Dr. Emily Davis', specialty: 'Neurologist', picture: './images/user3.svg', phone: '(123) 456-7892' },
+      { name: 'Dr. Mark Wilson', specialty: 'Pain Management Specialist', picture: './images/user2.svg', phone: '(123) 456-7893' },
+  ],
+  cough: [
+      { name: 'Dr. Sarah Brown', specialty: 'Pulmonologist', picture: './images/user3.svg', phone: '(123) 456-7894' },
+      { name: 'Dr. Chris Johnson', specialty: 'Allergist', picture: './images/user1.svg', phone: '(123) 456-7895' },
+  ],
+  // Add more doctors as needed
+};
+
+
+// Function to find diagnosis based on input symptom
+function findDiagnosis(symptom) {
+  const entry = mockSymptomsDatabase.find(item => item.symptoms.toLowerCase() === symptom.toLowerCase());
+  return entry ? entry.diagnosis : 'Diagnosis not found';
+}
+
+// Function to find doctors based on symptom
+function findDoctors(symptom) {
+  return doctorsDatabase[symptom.toLowerCase()] || [];
+}
+
 // Get references to form elements
 const symptomForm = document.getElementById('symptomForm');
 const symptomsInput = document.getElementById('symptomsInput');
 const diagnosisResult = document.getElementById('diagnosisResult');
+const doctorList = document.getElementById('doctorList');
+const loadingScreen = document.getElementById('loadingScreen');
 
 // Handle form submission
 symptomForm.addEventListener('submit', (event) => {
+  event.preventDefault();  // Prevent form from refreshing the page
+
   // Show loading screen
   loadingScreen.classList.remove('hidden');
-
   diagnosisResult.textContent = ''; // Clear any previous result
-
-  // Simulate a loading delay of 2 seconds before showing the diagnosis
-  setTimeout(() => {
-    // Hide loading screen
-    loadingScreen.classList.add('hidden');
-
-    // Display the diagnosis result
-    const diagnosis = findDiagnosis(symptomInput);
-    diagnosisResult.textContent = diagnosis;
-  }, 1000); // 2000 ms = 2 seconds
-
-
-  event.preventDefault();  // Prevent form from refreshing the page
+  doctorList.innerHTML = ''; // Clear previous doctor list
 
   // Get user input
   const enteredSymptoms = symptomsInput.value.trim().toLowerCase();
 
-  // Find matching diagnosis based on the user's input
-  const matchingSymptom = mockSymptomsDatabase.find(item => enteredSymptoms.includes(item.symptoms));
+  // Simulate a loading delay of 2 seconds before showing the diagnosis
+  setTimeout(() => {
+      // Hide loading screen
+      loadingScreen.classList.add('hidden');
 
-  // Display result based on match
-  if (matchingSymptom) {
-    diagnosisResult.innerHTML = `<h3 class="text-lg font-semibold">Diagnosis:</h3>
-      <p class="mt-2">${matchingSymptom.diagnosis}</p>`;
-  } else {
-    diagnosisResult.innerHTML = '<p class="text-red-500">No matching diagnosis found. Please try different symptoms.</p>';
-  }
+      // Find matching diagnosis based on the user's input
+      const matchingSymptom = mockSymptomsDatabase.find(item => enteredSymptoms.includes(item.symptoms));
 
-  diagnosisResult.classList.remove('hidden');
+      // Display result based on match
+      if (matchingSymptom) {
+          diagnosisResult.innerHTML = `<h3 class="text-lg font-semibold">Diagnosis:</h3>
+              <p class="mt-2">${matchingSymptom.diagnosis}</p>`;
 
+          // Find and display available doctors for the matching symptom
+          const doctors = findDoctors(matchingSymptom.symptoms);
+          if (doctors.length > 0) {
+              doctors.forEach(doctor => {
+                  const listItem = document.createElement('li');
+                  listItem.classList.add('flex', 'items-center', 'space-x-4', 'border', 'p-4', 'rounded');
+
+                  listItem.innerHTML = `
+                      <img src="${doctor.picture}" alt="${doctor.name}" class="w-24 h-24 rounded-full">
+                      <div>
+                          <h4 class="font-semibold">${doctor.name}</h4>
+                          <p>${doctor.specialty}</p>
+                          <p class="text-sm text-gray-600">${doctor.phone}</p>
+                      </div>
+                  `;
+                  doctorList.appendChild(listItem);
+              });
+          } else {
+              doctorList.innerHTML = '<li>No doctors available for this symptom.</li>';
+          }
+      } else {
+          diagnosisResult.innerHTML = '<p class="text-red-500">No matching diagnosis found. Please try different symptoms.</p>';
+      }
+
+      diagnosisResult.classList.remove('hidden');
+  }, 2000); // 2000 ms = 2 seconds
 });
