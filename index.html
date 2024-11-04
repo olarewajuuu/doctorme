@@ -9,6 +9,29 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="./output.css" rel="stylesheet">
 
+    <style>
+        /* Additional styles for the navbar */
+        #navbar {
+            transition: background-color 0.3s ease, opacity 0.3s ease;
+            background-color: rgba(255, 255, 255, 1);
+            /* Solid background */
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 10;
+            opacity: 1;
+            /* Full opacity */
+        }
+
+        /* Class to make navbar transparent */
+        .navbar-transparent {
+            background-color: rgba(255, 255, 255, 0);
+            /* Transparent background */
+            opacity: 0.8;
+            /* Optional: Slightly reduce opacity */
+        }
+    </style>
 
 </head>
 
@@ -20,7 +43,8 @@
 
 
     <!-- Navbar -->
-    <nav class="bg-white p-4 fixed top-0 w-full z-10 shadow-lg hover:shadow-xl transition duration-500">
+    <nav id="navbar"
+        class="navbar bg-white p-4 fixed top-0 w-full z-10 shadow-lg hover:shadow-xl transition duration-500">
         <div class="container mx-auto flex justify-between md:justify-center md:gap-96 items-center ">
             <h1><a href="./index.html" class="text-blue-600 text-2xl font-bold">DoctorMe</a></h1>
             <!-- Main navigation for larger screens -->
@@ -362,8 +386,8 @@
 
     <!-- Footer Section -->
     <footer id="contact" class="bg-white py-10 mt-20">
-        <div class="container mx-auto px-20">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-0">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
                 <!-- {/* Company Section */} -->
                 <div>
                     <h3 class="text-lg font-semibold mb-3 text-black">Navigation Links</h3>
@@ -414,19 +438,18 @@
                 </div>
             </div>
 
-
             <!-- Social Media Icons and Footer Bottom Section  -->
             <div class="mt-10 flex flex-col md:flex-row justify-between items-center  pt-6">
-                <p class="text-lg">Made With Love By Figmaland All Right Reserved </p>
+                <p class="text-sm">Made With Love By Figmaland All Right Reserved </p>
                 <div class="flex space-x-4 mt-4 md:mt-0">
-                    <a href="#" class="hover:text-blue-500 text-blue-600 text-2xl">
+                    <a href="#" class="hover:text-blue-500 text-blue-600">
                         <i class="fab fa-facebook"></i>
                     </a>
-                    <a href="#" class="hover:text-blue-300 text-blue-600 text-2xl">
+                    <a href="#" class="hover:text-blue-300 text-blue-600">
                         <i class="fab fa-twitter"></i>
                     </a>
                     <a href="#" className="hover:text-pink-500 ">
-                        <i class="fa-brands fa-instagram text-blue-600 text-2xl"></i>
+                        <i class="fa-brands fa-instagram text-blue-600"></i>
                     </a>
 
                 </div>

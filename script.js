@@ -244,3 +244,21 @@ sendMessageButton.addEventListener('click', () => {
         }, 1000); // 1 second delay for doctor response
     }
 });
+
+
+// Handle scroll event for navbar transparency
+let lastScrollTop = 0; // Keep track of last scroll position
+const navbar = document.getElementById('navbar');
+
+window.addEventListener('scroll', function() {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    if (scrollTop > lastScrollTop) {
+        // Scrolling down
+        navbar.classList.add('navbar-transparent'); // Add transparent class
+    } else {
+        // Scrolling up
+        navbar.classList.remove('navbar-transparent'); // Remove transparent class
+    }
+    lastScrollTop = scrollTop; // Update last scroll position
+});

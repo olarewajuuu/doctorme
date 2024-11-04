@@ -2,24 +2,24 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Symptom Checker</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symptom Checker</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body class="bg-gray-100">
 
-      <!-- Loading Screen -->
-      <!-- <div id="loadingScreen" class="fixed inset-0 flex items-center justify-center bg-white z-50 hidden">
+    <!-- Loading Screen -->
+    <!-- <div id="loadingScreen" class="fixed inset-0 flex items-center justify-center bg-white z-50 hidden">
         <div class="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
     </div> -->
-        <!-- Loading Screen with Flipping Circle -->
-   
-    
-     <!-- Navbar -->
-     <!-- Navbar -->
+    <!-- Loading Screen with Flipping Circle -->
+
+
+    <!-- Navbar -->
+    <!-- Navbar -->
     <nav class="bg-white p-4 fixed top-0 w-full z-10 shadow-lg hover:shadow-xl transition duration-500">
         <div class="container mx-auto flex justify-between md:justify-center md:gap-96 items-center ">
             <h1><a href="./index.html" class="text-blue-600 text-2xl font-bold">DoctorMe</a></h1>
@@ -77,116 +77,123 @@
     </div>
 
 
-  <!-- Hero Section -->
-  <section class="bg-blue-600 text-white text-center py-12 mt-20">
-    <h1 class="text-4xl font-bold">Patient Symptom Checker</h1>
-    <p class="mt-4 text-lg">Enter your symptoms and get a quick diagnosis!</p>
-  </section>
+    <!-- Hero Section -->
+    <section class="bg-blue-600 text-white text-center py-12 mt-20">
+        <h1 class="text-4xl font-bold">Patient Symptom Checker</h1>
+        <p class="mt-4 text-lg">Enter your symptoms and get a quick diagnosis!</p>
+    </section>
 
-  <!-- Symptom Checker Form -->
-  <section class="container mx-auto py-8 px-4">
-    <div class="bg-white p-6 rounded-lg shadow-lg max-w-lg mx-auto">
-      <h2 class="text-2xl font-semibold text-center mb-6">Enter your symptoms</h2>
+    <!-- Symptom Checker Form -->
+    <section class="container mx-auto py-8 px-4">
+        <div class="bg-white p-6 rounded-lg shadow-lg max-w-lg mx-auto">
+            <h2 class="text-2xl font-semibold text-center mb-6">Enter your symptoms</h2>
 
-      <!-- Form -->
-      <form id="symptomForm" class="space-y-4">
-        <input type="text" id="symptomsInput" class="w-full p-4 border border-gray-300 rounded-lg"
-          placeholder="Enter symptoms (e.g., headache, fever)">
-        <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700">Check
-          Symptoms</button>
-      </form>
+            <!-- Form -->
+            <form id="symptomForm" class="space-y-4">
+                <input type="text" id="symptomsInput" class="w-full p-4 border border-gray-300 rounded-lg"
+                    placeholder="Enter symptoms (e.g., headache, fever)">
+                <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700">Check
+                    Symptoms</button>
+            </form>
 
-      <div id="loadingScreen" class="fixed inset-0 flex items-center justify-center bg-white z-50">
-        <div class="w-12 h-12 rounded-full bg-blue-500 animate-ping"></div>
-    </div>
+            <div id="loadingScreen" class="fixed inset-0 flex items-center justify-center bg-white z-50">
+                <div class="w-12 h-12 rounded-full bg-blue-500 animate-ping"></div>
+            </div>
 
-      <!-- Results -->
-      <div id="diagnosisResult" class="mt-6 hidden bg-blue-50 p-4 rounded-lg text-blue-900"></div>
-      <h2 class="text-lg font-semibold mt-6">Available Doctors:</h2>
-      <ul id="doctorList" class="mt-2 text-gray-700"></ul>
+            <!-- Results -->
+            <div id="diagnosisResult" class="mt-6 hidden bg-blue-50 p-4 rounded-lg text-blue-900"></div>
+            <h2 class="text-lg font-semibold mt-6">Available Doctors:</h2>
+            <ul id="doctorList" class="mt-2 text-gray-700"></ul>
 
-              <!-- Chat Interface -->
-              <div id="chatInterface" class="hidden mt-6 w-full max-w-lg border rounded-lg shadow-lg bg-white">
+            <!-- Chat Interface -->
+            <div id="chatInterface" class="hidden mt-6 w-full max-w-lg border rounded-lg shadow-lg bg-white">
                 <div class="p-4 border-b">
                     <h2 class="text-lg font-semibold">Chat with Doctor</h2>
                 </div>
                 <div id="chatMessages" class="p-4 space-y-2 h-48 overflow-y-auto"></div>
                 <div class="p-4 border-t">
-                    <input type="text" id="chatInput" placeholder="Type your message..." class="border w-full p-2 rounded" />
+                    <input type="text" id="chatInput" placeholder="Type your message..."
+                        class="border w-full p-2 rounded" />
                     <button id="sendMessage" class="bg-blue-500 text-white px-4 py-2 rounded mt-2">Send</button>
                 </div>
-    
-    </div>
-    
-  </section>
 
-  <!-- Footer Section -->
-  <footer id="contact" class="bg-white py-10 mt-20">
-    <div class="container mx-auto px-4">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <!-- {/* Company Section */} -->
-            <div>
-                <h3 class="text-lg font-semibold mb-3 text-black">Navigation Links</h3>
-                <ul>
-                    <li><a href="#" class="hover:underline">Home</a></li>
-                    <li><a href="#" class="hover:underline">Symptoms</a></li>
-                    <li><a href="#" class="hover:underline">Articles</a></li>
-                    <li><a href="#" class="hover:underline">About Us</a></li>
-                    <li><a href="#" class="hover:underline">Find a Health Worker</a></li>
-                </ul>
             </div>
 
-            <!-- Help Center Section  -->
-            <div>
-                <h3 class="text-lg font-semibold mb-3 text-black">Legal</h3>
-                <ul>
-                    <li><a href="#" class="hover:underline">Privacy Policy</a></li>
-                    <li><a href="#" class="hover:underline">Terms of Use</a></li>
-                    <li><a href="#" class="hover:underline">Copyright</a></li>
-                </ul>
+    </section>
+
+    <!-- Footer Section -->
+    <footer id="contact" class="bg-white py-10 mt-20">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <!-- {/* Company Section */} -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-3 text-black">Navigation Links</h3>
+                    <ul>
+                        <li><a href="#" class="hover:underline">Home</a></li>
+                        <li><a href="#" class="hover:underline">Symptoms</a></li>
+                        <li><a href="#" class="hover:underline">Articles</a></li>
+                        <li><a href="#" class="hover:underline">About Us</a></li>
+                        <li><a href="#" class="hover:underline">Find a Health Worker</a></li>
+                    </ul>
+                </div>
+
+                <!-- Help Center Section  -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-3 text-black">Legal</h3>
+                    <ul>
+                        <li><a href="#" class="hover:underline">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:underline">Terms of Use</a></li>
+                        <li><a href="#" class="hover:underline">Copyright</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal Section -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-3 text-black">Additional Link</h3>
+                    <ul>
+                        <li><a href="#" class="hover:underline">Careers</a></li>
+                        <li><a href="#" class="hover:underline">FAQS</a></li>
+                        <li><a href="#" class="hover:underline">Sitemap</a></li>
+                    </ul>
+                </div>
+
+                <!-- Download Section -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-3 text-black">Get In Touch</h3>
+                    <ul>
+                        <li class="flex justify-start items-center text-sm md:text-lg"><i
+                                class="fa-solid fa-phone text-blue-600 mr-2"></i></i><a href="#"
+                                class="hover:underline">(480) 555-0103</a></li>
+                        <li class="flex justify-start items-center text-sm md:text-lg"> <i
+                                class="fa-solid fa-location-dot text-blue-600 mr-2"></i><a href="#"
+                                class="hover:underline">4517 Washington Ave. Manchester,
+                                Kentucky 39495 </a></li>
+                        <li class="flex justify-start items-center text-sm md:text-lg"><i
+                                class="fa-solid fa-envelope text-blue-600 mr-2"></i><a href="#"
+                                class="hover:underline">debra@example.com</a></li>
+                    </ul>
+                </div>
             </div>
 
-            <!-- Legal Section -->
-            <div>
-                <h3 class="text-lg font-semibold mb-3 text-black">Additional Link</h3>
-                <ul>
-                    <li><a href="#" class="hover:underline">Careers</a></li>
-                    <li><a href="#" class="hover:underline">FAQS</a></li>
-                    <li><a href="#" class="hover:underline">Sitemap</a></li>
-                </ul>
+            <!-- Social Media Icons and Footer Bottom Section  -->
+            <div class="mt-10 flex flex-col md:flex-row justify-between items-center  pt-6">
+                <p class="text-sm">Made With Love By Figmaland All Right Reserved </p>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-blue-500 text-blue-600">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="#" class="hover:text-blue-300 text-blue-600">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" className="hover:text-pink-500 ">
+                        <i class="fa-brands fa-instagram text-blue-600"></i>
+                    </a>
+
+                </div>
             </div>
 
-            <!-- Download Section -->
-            <div>
-                <h3 class="text-lg font-semibold mb-3 text-black">Get In Touch</h3>
-                <ul>
-                    <li class="flex justify-start items-center text-sm md:text-lg"><i class="fa-solid fa-phone text-blue-600 mr-2"></i></i><a href="#" class="hover:underline">(480) 555-0103</a></li>
-                    <li class="flex justify-start items-center text-sm md:text-lg"> <i class="fa-solid fa-location-dot text-blue-600 mr-2"></i><a href="#" class="hover:underline">4517 Washington Ave. Manchester, 
-                      Kentucky 39495 </a></li>
-                    <li class="flex justify-start items-center text-sm md:text-lg"><i class="fa-solid fa-envelope text-blue-600 mr-2"></i><a href="#" class="hover:underline">debra@example.com</a></li>
-                </ul>
-            </div>
         </div>
-
-        <!-- Social Media Icons and Footer Bottom Section  -->
-        <div class="mt-10 flex flex-col md:flex-row justify-between items-center  pt-6">
-            <p class="text-sm">Made With Love By Figmaland All Right Reserved </p>
-            <div class="flex space-x-4 mt-4 md:mt-0">
-                <a href="#" class="hover:text-blue-500 text-blue-600">
-                    <i class="fab fa-facebook"></i>
-                </a>
-                <a href="#" class="hover:text-blue-300 text-blue-600">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="#" className="hover:text-pink-500 ">
-                    <i class="fa-brands fa-instagram text-blue-600"></i>
-          </a> 
-
-            </div>
-        </div>
-
-    </div>
-</footer>
+    </footer>
 
 
 </body>
