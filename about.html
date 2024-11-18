@@ -13,14 +13,14 @@
     <!-- Navbar -->
     <nav id="navbar"
         class="navbar bg-white p-4 fixed top-0 w-full z-50 shadow-lg hover:shadow-xl transition duration-500">
-        <div class="container mx-auto flex justify-between md:justify-center md:gap-96 items-center ">
+        <div class="container mx-auto flex justify-between md:justify-center md:gap-96 items-center z-50">
             <h1><a href="./index.html" class="text-blue-600 text-2xl font-bold">DoctorMe</a></h1>
             <!-- Main navigation for larger screens -->
             <ul class="hidden md:flex justify-center items-center gap-4 space-x-6 active:text-blue-600 font-semibold">
-                <li><a href="./index.html" class=" hover:text-blue-300">Home</a></li>
+                <li><a href="./index.html" class=" hover:text-blue-300 text-blue-600 ">Home</a></li>
                 <li><a href="./checker.html" class="text-black hover:text-blue-300  ">Symptoms</a></li>
                 <li><a href="./about" class="text-black hover:text-blue-300  ">Articles</a></li>
-                <li><a href="./about.html" class="hover:text-blue-300  text-blue-600 ">About Us</a></li>
+                <li><a href="./about.html" class="text-black hover:text-blue-300 ">About Us</a></li>
                 <li><a href="./services" class="text-black hover:text-blue-300 ">Find a Health Worker</a></li>
                 <li><a href="./signup" class="block py-2"><button
                             class="bg-blue-600 text-white py-3 px-6 rounded-3xl hover:text-blue-500 hover:border-2 hover:border-blue-600 hover:bg-gray-200 font-semibold">Contact
@@ -43,8 +43,8 @@
     <!-- Mobile Sliding Menu -->
     <div id="mobile-menu"
         class="fixed pt-12 inset-y-0 z-50 right-0 w-64 bg-blue-600 text-white transform translate-x-full transition-transform duration-300 ease-in-out">
-        <div class="pt-8">
-            <div class="mb-10 flex justify-center items-center gap-20 broder-white border-b-2 pb-4">
+        <div class="pt-8 z-50">
+            <div class="mb-10 flex justify-center items-center gap-20 broder-white border-b-2 pb-4 z-50">
                 <button id="close-btn" class="text-white focus:outline-none mb">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg">
@@ -176,15 +176,21 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
                 <div>
                     <h2 class="text-2xl font-bold mb-12">Our Mission</h2>
-                    <p>Our "Find a Local Health Worker" feature makes it easy to connect with qualified healthcare providers in your community. Whether you need a general practitioner, specialist, or traditional healer, our network of trusted professionals is here to help.</p>
+                    <p>Our "Find a Local Health Worker" feature makes it easy to connect with qualified healthcare
+                        providers in your community. Whether you need a general practitioner, specialist, or traditional
+                        healer, our network of trusted professionals is here to help.</p>
                 </div>
                 <div>
                     <h2 class="text-2xl font-bold mb-12">Our Vision</h2>
-                    <p>Our "Find a Local Health Worker" feature makes it easy to connect with qualified healthcare providers in your community. Whether you need a general practitioner, specialist, or traditional healer, our network of trusted professionals is here to help.</p>
+                    <p>Our "Find a Local Health Worker" feature makes it easy to connect with qualified healthcare
+                        providers in your community. Whether you need a general practitioner, specialist, or traditional
+                        healer, our network of trusted professionals is here to help.</p>
                 </div>
                 <div>
                     <h2 class="text-2xl font-bold mb-12">Our Values</h2>
-                    <p>Our "Find a Local Health Worker" feature makes it easy to connect with qualified healthcare providers in your community. Whether you need a general practitioner, specialist, or traditional healer, our network of trusted professionals is here to help.</p>
+                    <p>Our "Find a Local Health Worker" feature makes it easy to connect with qualified healthcare
+                        providers in your community. Whether you need a general practitioner, specialist, or traditional
+                        healer, our network of trusted professionals is here to help.</p>
                 </div>
             </div>
         </div>
@@ -296,5 +302,5 @@
 
 
 </body>
-
+<script src="./script.js"></script>
 </html>
